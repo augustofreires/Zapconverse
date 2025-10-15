@@ -35,7 +35,7 @@ const SendFlowManuallyService = async ({
   const flow = await FlowBuilderModel.findOne({
     where: {
       id: flowId,
-      companyId
+      company_id: companyId
     }
   });
 
@@ -56,6 +56,8 @@ const SendFlowManuallyService = async ({
   const webhook = await WebhookModel.create({
     hash_id: hashWebhookId,
     company_id: companyId,
+    user_id: ticket.userId || 1,
+    name: `Flow Manual - ${flow.name}`,
     config: {
       details: {
         idFlow: flow.id,
