@@ -392,7 +392,7 @@ const Dashboard = () => {
     if (filterType === 1) {
       return (
         <>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={4} md={3}>
             <TextField
               label={i18n.t("dashboard.filters.initialDate")}
               type="date"
@@ -402,9 +402,11 @@ const Dashboard = () => {
               InputLabelProps={{
                 shrink: true,
               }}
+              variant="outlined"
+              size="small"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={4} md={3}>
             <TextField
               label={i18n.t("dashboard.filters.finalDate")}
               type="date"
@@ -414,14 +416,16 @@ const Dashboard = () => {
               InputLabelProps={{
                 shrink: true,
               }}
+              variant="outlined"
+              size="small"
             />
           </Grid>
         </>
       );
     } else {
       return (
-        <Grid item xs={12} sm={6} md={4}>
-          <FormControl className={classes.selectContainer}>
+        <Grid item xs={12} sm={4} md={3}>
+          <FormControl className={classes.selectContainer} variant="outlined" size="small">
             <InputLabel id="period-selector-label">
               {i18n.t("dashboard.periodSelect.title")}
             </InputLabel>
@@ -430,6 +434,7 @@ const Dashboard = () => {
               id="period-selector"
               value={period}
               onChange={(e) => handleChangePeriod(e.target.value)}
+              label={i18n.t("dashboard.periodSelect.title")}
             >
               <MenuItem value={0}>{i18n.t("dashboard.periodSelect.options.none")}</MenuItem>
               <MenuItem value={3}>{i18n.t("dashboard.periodSelect.options.last3")}</MenuItem>
@@ -439,7 +444,6 @@ const Dashboard = () => {
               <MenuItem value={60}>{i18n.t("dashboard.periodSelect.options.last60")}</MenuItem>
               <MenuItem value={90}>{i18n.t("dashboard.periodSelect.options.last90")}</MenuItem>
             </Select>
-            <FormHelperText>{i18n.t("dashboard.periodSelect.helper")}</FormHelperText>
           </FormControl>
         </Grid>
       );
