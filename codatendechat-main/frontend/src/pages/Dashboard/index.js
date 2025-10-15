@@ -112,10 +112,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: "palette",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(102, 126, 234, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(102, 126, 234, 0.5)",
+    },
   },
   card2: {
     padding: theme.spacing(2),
@@ -123,10 +132,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: "palette",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(240, 147, 251, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(240, 147, 251, 0.5)",
+    },
   },
   card3: {
     padding: theme.spacing(2),
@@ -134,9 +152,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-  //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(79, 172, 254, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(79, 172, 254, 0.5)",
+    },
   },
   card4: {
     padding: theme.spacing(2),
@@ -144,9 +172,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+      : 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(67, 233, 123, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(67, 233, 123, 0.5)",
+    },
   },
   card5: {
     padding: theme.spacing(2),
@@ -154,9 +192,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+      : 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(250, 112, 154, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(250, 112, 154, 0.5)",
+    },
   },
   card6: {
     padding: theme.spacing(2),
@@ -164,9 +212,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+      : 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+    color: "#fff",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(48, 207, 208, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(48, 207, 208, 0.5)",
+    },
   },
   card7: {
     padding: theme.spacing(2),
@@ -174,9 +232,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+      : 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+    color: "#333",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(168, 237, 234, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(168, 237, 234, 0.5)",
+    },
   },
   card8: {
     padding: theme.spacing(2),
@@ -184,9 +252,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
+      : 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+    color: "#333",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(255, 154, 158, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(255, 154, 158, 0.5)",
+    },
   },
   card9: {
     padding: theme.spacing(2),
@@ -194,9 +272,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    //backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : theme.palette.primary.main,
-    color: "#eee",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)'
+      : 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
+    color: "#333",
+    borderRadius: "20px",
+    boxShadow: "0 8px 32px 0 rgba(251, 194, 235, 0.37)",
+    backdropFilter: "blur(4px)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 40px 0 rgba(251, 194, 235, 0.5)",
+    },
   },
   fixedHeightPaper2: {
     padding: theme.spacing(2),
