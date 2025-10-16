@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 24, // keep right padding when drawer closed
     color: theme.palette.dark.main,
     background: theme.palette.barraSuperior,
+    borderRadius: "0 0 20px 20px",
   },
   toolbarIcon: {
     display: "flex",
@@ -88,8 +89,9 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    borderRadius: 0,
-    boxShadow: "0px 2px 12px rgba(0,0,0,0.08)",
+    borderRadius: "0 0 20px 20px",
+    boxShadow: "0px 4px 16px rgba(245, 184, 0, 0.15)",
+    overflow: "visible",
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -98,6 +100,8 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    borderRadius: "0 0 20px 20px",
+    overflow: "visible",
     [theme.breakpoints.down("sm")]: {
       display: "none"
     }
