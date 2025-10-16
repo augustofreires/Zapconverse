@@ -38,7 +38,7 @@ const App = () => {
                 },
                 "&::-webkit-scrollbar-thumb": {
                     boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
-                    backgroundColor: "#682EE3",
+                    backgroundColor: "#F5B800",
                     borderRadius: "10px",
                 },
             },
@@ -52,7 +52,7 @@ const App = () => {
                 },
             },
             shape: {
-                borderRadius: 12,
+                borderRadius: 16,
             },
             shadows: [
                 "none",
@@ -83,9 +83,9 @@ const App = () => {
             ],
             palette: {
                 type: mode,
-                primary: { main: mode === "light" ? "#682EE3" : "#FFFFFF" },
-                textPrimary: mode === "light" ? "#682EE3" : "#FFFFFF",
-                borderPrimary: mode === "light" ? "#682EE3" : "#FFFFFF",
+                primary: { main: mode === "light" ? "#F5B800" : "#FFFFFF" },
+                textPrimary: mode === "light" ? "#F5B800" : "#FFFFFF",
+                borderPrimary: mode === "light" ? "#F5B800" : "#FFFFFF",
                 dark: { main: mode === "light" ? "#333333" : "#F3F3F3" },
                 light: { main: mode === "light" ? "#F3F3F3" : "#333333" },
                 tabHeaderBackground: mode === "light" ? "#EEE" : "#666",
@@ -106,7 +106,7 @@ const App = () => {
                 total: mode === "light" ? "#fff" : "#222",
                 messageIcons: mode === "light" ? "grey" : "#F3F3F3",
                 inputBackground: mode === "light" ? "#FFFFFF" : "#333",
-                barraSuperior: mode === "light" ? "linear-gradient(to right, #682EE3, #682EE3 , #682EE3)" : "#666",
+                barraSuperior: mode === "light" ? "linear-gradient(to right, #F5B800, #F5B800 , #F5B800)" : "#666",
 				boxticket: mode === "light" ? "#EEE" : "#666",
 				campaigntab: mode === "light" ? "#ededed" : "#666",
 				mediainput: mode === "light" ? "#ededed" : "#1c1c1c",
@@ -114,7 +114,7 @@ const App = () => {
             overrides: {
                 MuiPaper: {
                     rounded: {
-                        borderRadius: 12,
+                        borderRadius: 16,
                     },
                     elevation1: {
                         boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
@@ -125,45 +125,45 @@ const App = () => {
                 },
                 MuiButton: {
                     root: {
-                        borderRadius: 10,
+                        borderRadius: 14,
                         textTransform: "none",
                         fontWeight: 500,
                         transition: "all 0.3s ease",
                     },
                     contained: {
-                        boxShadow: "0px 4px 12px rgba(104, 46, 227, 0.2)",
+                        boxShadow: "0px 4px 12px rgba(245, 184, 0, 0.2)",
                         "&:hover": {
-                            boxShadow: "0px 6px 16px rgba(104, 46, 227, 0.3)",
+                            boxShadow: "0px 6px 16px rgba(245, 184, 0, 0.3)",
                             transform: "translateY(-2px)",
                         },
                     },
                 },
                 MuiCard: {
                     root: {
-                        borderRadius: 16,
+                        borderRadius: 20,
                         boxShadow: "0px 4px 16px rgba(0,0,0,0.08)",
                     },
                 },
                 MuiDialog: {
                     paper: {
-                        borderRadius: 16,
+                        borderRadius: 20,
                     },
                 },
                 MuiDrawer: {
                     paper: {
-                        borderRadius: "0 16px 16px 0",
+                        borderRadius: "0 20px 20px 0",
                     },
                 },
                 MuiTextField: {
                     root: {
                         "& .MuiOutlinedInput-root": {
-                            borderRadius: 10,
+                            borderRadius: 14,
                         },
                     },
                 },
                 MuiChip: {
                     root: {
-                        borderRadius: 8,
+                        borderRadius: 12,
                     },
                 },
             },

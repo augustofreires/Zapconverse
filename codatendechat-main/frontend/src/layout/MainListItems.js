@@ -52,11 +52,87 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-15px",
     marginBottom: "-10px",
   },
+  listItem: {
+    margin: "4px 8px",
+    borderRadius: "12px",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&:hover": {
+      backgroundColor: theme.palette.type === 'dark'
+        ? "rgba(245, 184, 0, 0.08)"
+        : "rgba(245, 184, 0, 0.08)",
+      transform: "translateX(4px)",
+    },
+  },
+  listItemActive: {
+    backgroundColor: theme.palette.type === 'dark'
+      ? "rgba(245, 184, 0, 0.15)"
+      : "rgba(245, 184, 0, 0.12)",
+    borderLeft: "3px solid #F5B800",
+    "&:hover": {
+      backgroundColor: theme.palette.type === 'dark'
+        ? "rgba(245, 184, 0, 0.2)"
+        : "rgba(245, 184, 0, 0.15)",
+    },
+  },
+  listItemIcon: {
+    minWidth: "42px",
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#666",
+    transition: "color 0.2s ease",
+  },
+  listItemIconActive: {
+    color: "#F5B800",
+  },
+  listItemText: {
+    "& .MuiListItemText-primary": {
+      fontSize: "0.9rem",
+      fontWeight: 500,
+      color: theme.palette.type === 'dark' ? "#e0e0e0" : "#333",
+    },
+  },
+  listItemTextActive: {
+    "& .MuiListItemText-primary": {
+      fontWeight: 600,
+      color: "#F5B800",
+    },
+  },
+  divider: {
+    margin: "12px 0",
+    backgroundColor: theme.palette.type === 'dark'
+      ? "rgba(255, 255, 255, 0.08)"
+      : "rgba(0, 0, 0, 0.08)",
+  },
+  subheader: {
+    fontSize: "0.75rem",
+    fontWeight: 700,
+    letterSpacing: "1px",
+    textTransform: "uppercase",
+    color: theme.palette.type === 'dark'
+      ? "rgba(255, 255, 255, 0.5)"
+      : "rgba(0, 0, 0, 0.5)",
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
+  },
+  subMenuItem: {
+    margin: "2px 8px",
+    marginLeft: "16px",
+    borderRadius: "10px",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&:hover": {
+      backgroundColor: theme.palette.type === 'dark'
+        ? "rgba(245, 184, 0, 0.06)"
+        : "rgba(245, 184, 0, 0.06)",
+      transform: "translateX(3px)",
+    },
+  },
 }));
 
 
 function ListItemLink(props) {
   const { icon, primary, to, className } = props;
+  const history = useHistory();
+  const classes = useStyles();
+
+  const isActive = history.location.pathname === to;
 
   const renderLink = React.useMemo(
     () =>
@@ -68,9 +144,21 @@ function ListItemLink(props) {
 
   return (
     <li>
-      <ListItem button dense component={renderLink} className={className}>
-        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} />
+      <ListItem
+        button
+        dense
+        component={renderLink}
+        className={`${classes.listItem} ${isActive ? classes.listItemActive : ''} ${className || ''}`}
+      >
+        {icon ? (
+          <ListItemIcon className={`${classes.listItemIcon} ${isActive ? classes.listItemIconActive : ''}`}>
+            {icon}
+          </ListItemIcon>
+        ) : null}
+        <ListItemText
+          primary={primary}
+          className={`${classes.listItemText} ${isActive ? classes.listItemTextActive : ''}`}
+        />
       </ListItem>
     </li>
   );
@@ -354,12 +442,12 @@ const MainListItems = (props) => {
         perform="drawer-admin-items:view"
         yes={() => (
           <>
-            <Divider />
+            <Divider className={classes.divider} />
             <ListSubheader
               hidden={collapsed}
+              className={classes.subheader}
               style={{
                 position: "relative",
-                fontSize: "17px",
                 textAlign: "left",
                 paddingLeft: 20
               }}
@@ -373,12 +461,14 @@ const MainListItems = (props) => {
                 <ListItem
                   button
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
+                  className={classes.listItem}
                 >
-                  <ListItemIcon>
+                  <ListItemIcon className={classes.listItemIcon}>
                     <EventAvailableIcon />
                   </ListItemIcon>
                   <ListItemText
                     primary={i18n.t("mainDrawer.listItems.campaigns")}
+                    className={classes.listItemText}
                   />
                   {openCampaignSubmenu ? (
                     <ExpandLessIcon />
@@ -393,29 +483,31 @@ const MainListItems = (props) => {
                   unmountOnExit
                 >
                   <List component="div" disablePadding>
-                    <ListItem onClick={() => history.push("/campaigns")} button>
-                      <ListItemIcon>
+                    <ListItem onClick={() => history.push("/campaigns")} button className={classes.subMenuItem}>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <ListIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Listagem" />
+                      <ListItemText primary="Listagem" className={classes.listItemText} />
                     </ListItem>
                     <ListItem
                       onClick={() => history.push("/contact-lists")}
                       button
+                      className={classes.subMenuItem}
                     >
-                      <ListItemIcon>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <PeopleIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Listas de Contatos" />
+                      <ListItemText primary="Listas de Contatos" className={classes.listItemText} />
                     </ListItem>
                     <ListItem
                       onClick={() => history.push("/campaigns-config")}
                       button
+                      className={classes.subMenuItem}
                     >
-                      <ListItemIcon>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <SettingsOutlinedIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Configurações" />
+                      <ListItemText primary="Configurações" className={classes.listItemText} />
                     </ListItem>
                   </List>
                 </Collapse>
@@ -423,14 +515,16 @@ const MainListItems = (props) => {
                 <ListItem
                     button
                     onClick={() => setOpenFlowsSubmenu((prev) => !prev)}
+                    className={classes.listItem}
                 >
-                  <ListItemIcon>
+                  <ListItemIcon className={classes.listItemIcon}>
                     <AccountTree />
                   </ListItemIcon>
                   <ListItemText
                       primary={i18n.t("mainDrawer.listItems.flows")}
+                      className={classes.listItemText}
                   />
-                  {openCampaignSubmenu ? (
+                  {openFlowsSubmenu ? (
                       <ExpandLessIcon />
                   ) : (
                       <ExpandMoreIcon />
@@ -447,21 +541,23 @@ const MainListItems = (props) => {
                     <ListItem
                         onClick={() => history.push("/phrase-lists")}
                         button
+                        className={classes.subMenuItem}
                     >
-                      <ListItemIcon>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <EventAvailableIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Campanha" />
+                      <ListItemText primary="Campanha" className={classes.listItemText} />
                     </ListItem>
 
                     <ListItem
                         onClick={() => history.push("/flowbuilders")}
                         button
+                        className={classes.subMenuItem}
                     >
-                      <ListItemIcon>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <ShapeLine />
                       </ListItemIcon>
-                      <ListItemText primary="Conversa" />
+                      <ListItemText primary="Conversa" className={classes.listItemText} />
                     </ListItem>
                   </List>
                 </Collapse>
@@ -537,15 +633,15 @@ const MainListItems = (props) => {
 			
 			
             {!collapsed && <React.Fragment>
-              <Divider />
-              {/* 
+              <Divider className={classes.divider} />
+              {/*
               // IMAGEM NO MENU
               <Hidden only={['sm', 'xs']}>
-                <img style={{ width: "100%", padding: "10px" }} src={logo} alt="image" />            
-              </Hidden> 
+                <img style={{ width: "100%", padding: "10px" }} src={logo} alt="image" />
+              </Hidden>
               */}
-              <Typography style={{ fontSize: "12px", padding: "10px", textAlign: "right", fontWeight: "bold" }}>
-                8.0.1
+              <Typography style={{ fontSize: "11px", padding: "10px", textAlign: "right", fontWeight: "600", opacity: 0.5 }}>
+                v8.0.1
               </Typography>
             </React.Fragment>
             }

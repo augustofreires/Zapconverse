@@ -71,10 +71,18 @@ const useStyles = makeStyles((theme) => ({
   },
   fullWidth: {
     width: "100%",
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "8px",
+      background: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#ffffff',
+    },
   },
   selectContainer: {
     width: "100%",
     textAlign: "left",
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "8px",
+      background: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#ffffff',
+    },
   },
   iframeDashboard: {
     width: "100%",
@@ -82,8 +90,10 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
   },
   container: {
-    paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(4),
+    background: theme.palette.type === 'dark' ? '#0a0a0a' : '#f5f7fa',
+    minHeight: '100vh',
   },
   fixedHeightPaper: {
     padding: theme.spacing(2),
@@ -113,35 +123,85 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-      : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(102, 126, 234, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(102, 126, 234, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   cardTitle: {
-    fontSize: "0.875rem",
-    fontWeight: 500,
-    letterSpacing: "0.5px",
+    fontSize: "0.75rem",
+    fontWeight: 600,
+    letterSpacing: "0.8px",
     textTransform: "uppercase",
-    opacity: 0.9,
+    opacity: 0.8,
     marginBottom: theme.spacing(2),
+    paddingBottom: theme.spacing(1.5),
+    color: theme.palette.type === 'dark' ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.6)",
+    position: "relative",
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "40px",
+      height: "3px",
+      borderRadius: "2px",
+    },
+  },
+  cardTitleBlue: {
+    "&::after": {
+      background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+    },
+  },
+  cardTitleOrange: {
+    "&::after": {
+      background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+    },
+  },
+  cardTitleGreen: {
+    "&::after": {
+      background: "linear-gradient(90deg, #10b981, #34d399)",
+    },
+  },
+  cardTitlePurple: {
+    "&::after": {
+      background: "linear-gradient(90deg, #8b5cf6, #a78bfa)",
+    },
+  },
+  cardTitlePink: {
+    "&::after": {
+      background: "linear-gradient(90deg, #ec4899, #f472b6)",
+    },
+  },
+  cardTitleCyan: {
+    "&::after": {
+      background: "linear-gradient(90deg, #06b6d4, #22d3ee)",
+    },
   },
   cardNumber: {
-    fontSize: "3rem",
-    fontWeight: 300,
-    lineHeight: 1,
-    letterSpacing: "-0.5px",
+    fontSize: "2.5rem",
+    fontWeight: 700,
+    lineHeight: 1.2,
+    letterSpacing: "-1px",
+    color: theme.palette.type === 'dark' ? "#ffffff" : "#1a1a1a",
   },
   cardIcon: {
-    fontSize: 64,
-    opacity: 0.3,
+    fontSize: 56,
+    opacity: 1,
+    color: theme.palette.type === 'dark' ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.12)",
   },
   card2: {
     padding: theme.spacing(3),
@@ -150,16 +210,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
-      : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(240, 147, 251, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(240, 147, 251, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card3: {
@@ -169,16 +235,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-      : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(79, 172, 254, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(79, 172, 254, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card4: {
@@ -188,16 +260,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
-      : 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(67, 233, 123, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(67, 233, 123, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card5: {
@@ -207,16 +285,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-      : 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(250, 112, 154, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(250, 112, 154, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card6: {
@@ -226,16 +310,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
-      : 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-    color: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(48, 207, 208, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(48, 207, 208, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card7: {
@@ -245,16 +335,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
-      : 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-    color: "#333",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(168, 237, 234, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(168, 237, 234, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card8: {
@@ -264,16 +360,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
-      : 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
-    color: "#333",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(255, 154, 158, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(255, 154, 158, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   card9: {
@@ -283,23 +385,39 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     height: "100%",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)'
-      : 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
-    color: "#333",
-    borderRadius: "16px",
-    boxShadow: "0 4px 20px 0 rgba(251, 194, 235, 0.25)",
-    border: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
+    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-4px)",
-      boxShadow: "0 8px 30px 0 rgba(251, 194, 235, 0.35)",
+      transform: "translateY(-2px)",
+      boxShadow: theme.palette.type === 'dark'
+        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
+        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
     },
   },
   fixedHeightPaper2: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    borderRadius: "12px",
+    boxShadow: theme.palette.type === 'dark'
+      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
+      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
+    border: theme.palette.type === 'dark'
+      ? "1px solid rgba(255, 255, 255, 0.1)"
+      : "1px solid rgba(0, 0, 0, 0.06)",
   },
 }));
 
@@ -460,9 +578,9 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
+    <div style={{ background: 'inherit' }}>
       <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={3} justifyContent="flex-end">
+        <Grid container spacing={3} justifyContent="flex-end" style={{ paddingTop: 16 }}>
 		
 
           {/* EM ATENDIMENTO */}
@@ -474,7 +592,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitleBlue}`}>
                     {i18n.t("dashboard.counters.inTalk")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
@@ -497,7 +615,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitleOrange}`}>
                     {i18n.t("dashboard.counters.waiting")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
@@ -562,7 +680,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitleGreen}`}>
                     {i18n.t("dashboard.counters.finished")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
@@ -585,7 +703,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitlePurple}`}>
                     {i18n.t("dashboard.counters.newContacts")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
@@ -609,7 +727,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitlePink}`}>
                     {i18n.t("dashboard.counters.averageTalkTime")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
@@ -632,7 +750,7 @@ const Dashboard = () => {
             >
               <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography className={classes.cardTitle}>
+                  <Typography className={`${classes.cardTitle} ${classes.cardTitleCyan}`}>
                     {i18n.t("dashboard.counters.averageWaitTime")}
                   </Typography>
                   <Typography className={classes.cardNumber}>
