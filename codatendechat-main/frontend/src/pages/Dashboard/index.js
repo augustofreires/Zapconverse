@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   card1: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -116,18 +116,35 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(102, 126, 234, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(102, 126, 234, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(102, 126, 234, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(102, 126, 234, 0.35)",
     },
   },
+  cardTitle: {
+    fontSize: "0.875rem",
+    fontWeight: 500,
+    letterSpacing: "0.5px",
+    textTransform: "uppercase",
+    opacity: 0.9,
+    marginBottom: theme.spacing(2),
+  },
+  cardNumber: {
+    fontSize: "3rem",
+    fontWeight: 300,
+    lineHeight: 1,
+    letterSpacing: "-0.5px",
+  },
+  cardIcon: {
+    fontSize: 64,
+    opacity: 0.3,
+  },
   card2: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -136,18 +153,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
       : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(240, 147, 251, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(240, 147, 251, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(240, 147, 251, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(240, 147, 251, 0.35)",
     },
   },
   card3: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -156,18 +172,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
       : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(79, 172, 254, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(79, 172, 254, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(79, 172, 254, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(79, 172, 254, 0.35)",
     },
   },
   card4: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -176,18 +191,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
       : 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(67, 233, 123, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(67, 233, 123, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(67, 233, 123, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(67, 233, 123, 0.35)",
     },
   },
   card5: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -196,18 +210,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
       : 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(250, 112, 154, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(250, 112, 154, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(250, 112, 154, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(250, 112, 154, 0.35)",
     },
   },
   card6: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -216,18 +229,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
       : 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
     color: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(48, 207, 208, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(48, 207, 208, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(48, 207, 208, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(48, 207, 208, 0.35)",
     },
   },
   card7: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -236,18 +248,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
       : 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
     color: "#333",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(168, 237, 234, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(168, 237, 234, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(168, 237, 234, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(168, 237, 234, 0.35)",
     },
   },
   card8: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -256,18 +267,17 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
       : 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
     color: "#333",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(255, 154, 158, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(255, 154, 158, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(255, 154, 158, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(255, 154, 158, 0.35)",
     },
   },
   card9: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -276,14 +286,13 @@ const useStyles = makeStyles((theme) => ({
       ? 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)'
       : 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)',
     color: "#333",
-    borderRadius: "20px",
-    boxShadow: "0 8px 32px 0 rgba(251, 194, 235, 0.37)",
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-    transition: "all 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px 0 rgba(251, 194, 235, 0.25)",
+    border: "none",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-5px)",
-      boxShadow: "0 12px 40px 0 rgba(251, 194, 235, 0.5)",
+      transform: "translateY(-4px)",
+      boxShadow: "0 8px 30px 0 rgba(251, 194, 235, 0.35)",
     },
   },
   fixedHeightPaper2: {
@@ -461,33 +470,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card1}
               style={{ overflow: "hidden" }}
-              elevation={4}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.inTalk")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {counters.supportHappening}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {counters.supportHappening}
+                  </Typography>
                 </Grid>
-                <Grid item xs={2}>
-                  <CallIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <CallIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
@@ -498,33 +493,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card2}
               style={{ overflow: "hidden" }}
-              elevation={6}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.waiting")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {counters.supportPending}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {counters.supportPending}
+                  </Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <HourglassEmptyIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <HourglassEmptyIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
@@ -577,33 +558,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card3}
               style={{ overflow: "hidden" }}
-              elevation={6}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.finished")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {counters.supportFinished}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {counters.supportFinished}
+                  </Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <CheckCircleIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <CheckCircleIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
@@ -614,33 +581,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card4}
               style={{ overflow: "hidden" }}
-              elevation={6}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.newContacts")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {GetContacts(true)}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {GetContacts(true)}
+                  </Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <GroupAddIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <GroupAddIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
@@ -652,33 +605,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card8}
               style={{ overflow: "hidden" }}
-              elevation={6}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.averageTalkTime")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {formatTime(counters.avgSupportTime)}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {formatTime(counters.avgSupportTime)}
+                  </Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <AccessAlarmIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <AccessAlarmIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
@@ -689,33 +628,19 @@ const Dashboard = () => {
             <Paper
               className={classes.card9}
               style={{ overflow: "hidden" }}
-              elevation={6}
+              elevation={0}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={0} style={{ height: '100%', alignItems: 'center' }}>
                 <Grid item xs={8}>
-                  <Typography
-                    component="h3"
-                    variant="h6"
-                    paragraph
-                  >
+                  <Typography className={classes.cardTitle}>
                     {i18n.t("dashboard.counters.averageWaitTime")}
                   </Typography>
-                  <Grid item>
-                    <Typography
-                      component="h1"
-                      variant="h4"
-                    >
-                      {formatTime(counters.avgWaitTime)}
-                    </Typography>
-                  </Grid>
+                  <Typography className={classes.cardNumber}>
+                    {formatTime(counters.avgWaitTime)}
+                  </Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <TimerIcon
-                    style={{
-                      fontSize: 100,
-                      color: "#FFFFFF",
-                    }}
-                  />
+                <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <TimerIcon className={classes.cardIcon} />
                 </Grid>
               </Grid>
             </Paper>
