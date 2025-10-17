@@ -75,16 +75,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   listItemIcon: {
-    minWidth: "56px",
+    minWidth: "60px",
     "& .MuiSvgIcon-root": {
-      fontSize: "1.4rem",
-      padding: "10px",
+      fontSize: "1.2rem",
+      padding: "12px",
       borderRadius: "50%",
       backgroundColor: theme.palette.type === 'dark'
         ? "rgba(245, 184, 0, 0.12)"
         : "rgba(245, 184, 0, 0.1)",
       color: "#F5B800",
       transition: "all 0.2s ease",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
   },
   listItemIconActive: {
@@ -94,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
         : "rgba(245, 184, 0, 0.15)",
       color: "#F5B800",
       boxShadow: "0 0 12px rgba(245, 184, 0, 0.3)",
-      transform: "scale(1.05)",
+      transform: "scale(1.1)",
     },
   },
   listItemText: {
