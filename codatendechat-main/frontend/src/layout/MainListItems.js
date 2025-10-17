@@ -75,12 +75,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   listItemIcon: {
-    minWidth: "42px",
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#666",
-    transition: "color 0.2s ease",
+    minWidth: "50px",
+    "& .MuiSvgIcon-root": {
+      fontSize: "1.3rem",
+      padding: "8px",
+      borderRadius: "50%",
+      backgroundColor: theme.palette.type === 'dark'
+        ? "rgba(245, 184, 0, 0.12)"
+        : "rgba(245, 184, 0, 0.1)",
+      color: "#F5B800",
+      transition: "all 0.2s ease",
+    },
   },
   listItemIconActive: {
-    color: "#F5B800",
+    "& .MuiSvgIcon-root": {
+      backgroundColor: theme.palette.type === 'dark'
+        ? "rgba(245, 184, 0, 0.2)"
+        : "rgba(245, 184, 0, 0.15)",
+      color: "#F5B800",
+      boxShadow: "0 0 12px rgba(245, 184, 0, 0.3)",
+    },
   },
   listItemText: {
     "& .MuiListItemText-primary": {
