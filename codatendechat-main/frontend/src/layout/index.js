@@ -367,6 +367,10 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           ),
         }}
         open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        ModalProps={{
+          keepMounted: true,
+        }}
       >
         <div className={classes.toolbarIcon}>
           <img src={logo} className={classes.logo} alt="logo" />
