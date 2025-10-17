@@ -448,7 +448,10 @@ const MainListItems = (props) => {
             {/* Menu Principal de Administração */}
             <ListItem
               button
-              onClick={() => setOpenAdminSubmenu((prev) => !prev)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpenAdminSubmenu((prev) => !prev);
+              }}
               className={classes.listItem}
             >
               <ListItemIcon className={classes.listItemIcon}>
@@ -477,7 +480,10 @@ const MainListItems = (props) => {
               <>
                 <ListItem
                   button
-                  onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenCampaignSubmenu((prev) => !prev);
+                  }}
                   className={classes.subMenuItem}
                 >
                   <ListItemIcon className={classes.listItemIcon}>
@@ -531,7 +537,10 @@ const MainListItems = (props) => {
                 {/* Flow builder */}
                 <ListItem
                     button
-                    onClick={() => setOpenFlowsSubmenu((prev) => !prev)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenFlowsSubmenu((prev) => !prev);
+                    }}
                     className={classes.subMenuItem}
                 >
                   <ListItemIcon className={classes.listItemIcon}>
