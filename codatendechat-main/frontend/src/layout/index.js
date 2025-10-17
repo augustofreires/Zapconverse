@@ -367,9 +367,17 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           ),
         }}
         open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
+        onClose={(event, reason) => {
+          // Só fecha se clicar no backdrop, não nos cliques internos
+          if (reason === 'backdropClick') {
+            setDrawerOpen(false);
+          }
+        }}
         ModalProps={{
           keepMounted: true,
+          BackdropProps: {
+            onClick: () => setDrawerOpen(false)
+          }
         }}
       >
         <div className={classes.toolbarIcon}>

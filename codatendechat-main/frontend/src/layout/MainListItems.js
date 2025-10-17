@@ -461,6 +461,7 @@ const MainListItems = (props) => {
               button
               onClick={(e) => {
                 e.stopPropagation();
+                console.log('Menu Administração clicado!', openAdminSubmenu);
                 setOpenAdminSubmenu((prev) => !prev);
               }}
               className={classes.listItem}
