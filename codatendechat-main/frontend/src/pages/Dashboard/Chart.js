@@ -6,8 +6,8 @@ import {
 	YAxis,
 	Label,
 	ResponsiveContainer,
-	LineChart,
-	Line,
+	AreaChart,
+	Area,
 	Tooltip,
 	Legend,
 } from "recharts";
@@ -69,48 +69,62 @@ const Chart = ({ queueTicket }) => {
 		<React.Fragment>
 			<Title>{`${"Atendimentos Criados: "}${count}`}</Title>
 			<ResponsiveContainer>
-				<LineChart
+				<AreaChart
 					data={chartData}
 					width={730}
 					height={250}
 					margin={{
-						top: 5,
+						top: 10,
 						right: 30,
-						left: 20,
-						bottom: 5,
+						left: 0,
+						bottom: 0,
 					}}
 				>
-					<CartesianGrid strokeDasharray="3 3" />
+					<defs>
+						<linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
+							<stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+						</linearGradient>
+					</defs>
+					<CartesianGrid strokeDasharray="3 3" stroke={theme.palette.type === 'dark' ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} />
 					<XAxis
 						dataKey="time"
 						stroke={theme.palette.text.secondary}
+						style={{ fontSize: '12px' }}
 					/>
 					<YAxis
 						type="number"
 						allowDecimals={false}
 						stroke={theme.palette.text.secondary}
+						style={{ fontSize: '12px' }}
 					>
-						<Tooltip />
-						<Legend />
 						<Label
 							angle={270}
 							position="left"
 							style={{
 								textAnchor: "middle",
-								fill: theme.palette.text.primary,
+								fill: theme.palette.text.secondary,
+								fontSize: '12px'
 							}}
 						>
 							Tickets
 						</Label>
 					</YAxis>
-					<Line
+					<Tooltip
+						contentStyle={{
+							backgroundColor: theme.palette.type === 'dark' ? '#2d2d2d' : '#fff',
+							border: '1px solid #10b981',
+							borderRadius: '8px'
+						}}
+					/>
+					<Area
 						type="monotone"
 						dataKey="amount"
-						stroke="#8884d8"
-						strokeWidth={2}
-					// fill={theme.palette.primary.main}
+						stroke="#10b981"
+						strokeWidth={2.5}
+						fill="url(#colorAmount)"
 					/>
-				</LineChart>
+				</AreaChart>
 			</ResponsiveContainer>
 		</React.Fragment>
 	);

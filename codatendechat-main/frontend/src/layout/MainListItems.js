@@ -226,6 +226,7 @@ const MainListItems = (props) => {
   const { whatsApps } = useContext(WhatsAppsContext);
   const { user, handleLogout } = useContext(AuthContext);
   const [connectionWarning, setConnectionWarning] = useState(false);
+  const [openAdminSubmenu, setOpenAdminSubmenu] = useState(false);
   const [openCampaignSubmenu, setOpenCampaignSubmenu] = useState(false);
   const [showCampaigns, setShowCampaigns] = useState(false);
   const [showKanban, setShowKanban] = useState(false);
@@ -241,7 +242,7 @@ const MainListItems = (props) => {
   const [searchParam] = useState("");
   const [chats, dispatch] = useReducer(reducer, []);
   const { getPlanCompany } = usePlans();
-  
+
   const [openFlowsSubmenu, setOpenFlowsSubmenu] = useState(false);
 
   const socketManager = useContext(SocketContext);
@@ -443,25 +444,41 @@ const MainListItems = (props) => {
         yes={() => (
           <>
             <Divider className={classes.divider} />
-            <ListSubheader
-              hidden={collapsed}
-              className={classes.subheader}
-              style={{
-                position: "relative",
-                textAlign: "left",
-                paddingLeft: 20
-              }}
-              inset
-              color="inherit">
-              {i18n.t("mainDrawer.listItems.administration")}
-            </ListSubheader>
-			
+
+            {/* Menu Principal de Administração */}
+            <ListItem
+              button
+              onClick={() => setOpenAdminSubmenu((prev) => !prev)}
+              className={classes.listItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <SettingsOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary={i18n.t("mainDrawer.listItems.administration")}
+                className={classes.listItemText}
+              />
+              {openAdminSubmenu ? (
+                <ExpandLessIcon />
+              ) : (
+                <ExpandMoreIcon />
+              )}
+            </ListItem>
+
+            {/* Collapse com todos os itens administrativos */}
+            <Collapse
+              in={openAdminSubmenu}
+              timeout="auto"
+              unmountOnExit
+            >
+              <List component="div" disablePadding>
+
             {showCampaigns && (
               <>
                 <ListItem
                   button
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
-                  className={classes.listItem}
+                  className={classes.subMenuItem}
                 >
                   <ListItemIcon className={classes.listItemIcon}>
                     <EventAvailableIcon />
@@ -515,7 +532,7 @@ const MainListItems = (props) => {
                 <ListItem
                     button
                     onClick={() => setOpenFlowsSubmenu((prev) => !prev)}
-                    className={classes.listItem}
+                    className={classes.subMenuItem}
                 >
                   <ListItemIcon className={classes.listItemIcon}>
                     <AccountTree />
@@ -565,73 +582,122 @@ const MainListItems = (props) => {
             )}
 
             {user.super && (
-              <ListItemLink
-                to="/announcements"
-                primary={i18n.t("mainDrawer.listItems.annoucements")}
-                icon={<AnnouncementIcon />}
-              />
+              <ListItem
+                onClick={() => history.push("/announcements")}
+                button
+                className={classes.subMenuItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  <AnnouncementIcon />
+                </ListItemIcon>
+                <ListItemText primary={i18n.t("mainDrawer.listItems.annoucements")} className={classes.listItemText} />
+              </ListItem>
             )}
             {showOpenAi && (
-              <ListItemLink
-                to="/prompts"
-                primary={i18n.t("mainDrawer.listItems.prompts")}
-                icon={<AllInclusive />}
-              />
+              <ListItem
+                onClick={() => history.push("/prompts")}
+                button
+                className={classes.subMenuItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  <AllInclusive />
+                </ListItemIcon>
+                <ListItemText primary={i18n.t("mainDrawer.listItems.prompts")} className={classes.listItemText} />
+              </ListItem>
             )}
 
             {showIntegrations && (
-              <ListItemLink
-                to="/queue-integration"
-                primary={i18n.t("mainDrawer.listItems.queueIntegration")}
-                icon={<DeviceHubOutlined />}
-              />
+              <ListItem
+                onClick={() => history.push("/queue-integration")}
+                button
+                className={classes.subMenuItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  <DeviceHubOutlined />
+                </ListItemIcon>
+                <ListItemText primary={i18n.t("mainDrawer.listItems.queueIntegration")} className={classes.listItemText} />
+              </ListItem>
             )}
-            <ListItemLink
-              to="/connections"
-              primary={i18n.t("mainDrawer.listItems.connections")}
-              icon={
+            <ListItem
+              onClick={() => history.push("/connections")}
+              button
+              className={classes.subMenuItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
                 <Badge badgeContent={connectionWarning ? "!" : 0} color="error">
                   <SyncAltIcon />
                 </Badge>
-              }
-            />
-            <ListItemLink
-              to="/files"
-              primary={i18n.t("mainDrawer.listItems.files")}
-              icon={<AttachFile />}
-            />
-            <ListItemLink
-              to="/queues"
-              primary={i18n.t("mainDrawer.listItems.queues")}
-              icon={<AccountTreeOutlinedIcon />}
-            />
-            <ListItemLink
-              to="/users"
-              primary={i18n.t("mainDrawer.listItems.users")}
-              icon={<PeopleAltOutlinedIcon />}
-            />
+              </ListItemIcon>
+              <ListItemText primary={i18n.t("mainDrawer.listItems.connections")} className={classes.listItemText} />
+            </ListItem>
+            <ListItem
+              onClick={() => history.push("/files")}
+              button
+              className={classes.subMenuItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <AttachFile />
+              </ListItemIcon>
+              <ListItemText primary={i18n.t("mainDrawer.listItems.files")} className={classes.listItemText} />
+            </ListItem>
+            <ListItem
+              onClick={() => history.push("/queues")}
+              button
+              className={classes.subMenuItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <AccountTreeOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={i18n.t("mainDrawer.listItems.queues")} className={classes.listItemText} />
+            </ListItem>
+            <ListItem
+              onClick={() => history.push("/users")}
+              button
+              className={classes.subMenuItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <PeopleAltOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={i18n.t("mainDrawer.listItems.users")} className={classes.listItemText} />
+            </ListItem>
             {showExternalApi && (
-              <>
-                <ListItemLink
-                  to="/messages-api"
-                  primary={i18n.t("mainDrawer.listItems.messagesAPI")}
-                  icon={<CodeRoundedIcon />}
-                />
-              </>
+              <ListItem
+                onClick={() => history.push("/messages-api")}
+                button
+                className={classes.subMenuItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  <CodeRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary={i18n.t("mainDrawer.listItems.messagesAPI")} className={classes.listItemText} />
+              </ListItem>
             )}
-            <ListItemLink
-              to="/financeiro"
-              primary={i18n.t("mainDrawer.listItems.financeiro")}
-              icon={<LocalAtmIcon />}
-            />
+            <ListItem
+              onClick={() => history.push("/financeiro")}
+              button
+              className={classes.subMenuItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <LocalAtmIcon />
+              </ListItemIcon>
+              <ListItemText primary={i18n.t("mainDrawer.listItems.financeiro")} className={classes.listItemText} />
+            </ListItem>
 
-            <ListItemLink
-              to="/settings"
-              primary={i18n.t("mainDrawer.listItems.settings")}
-              icon={<SettingsOutlinedIcon />}
-            />
-			
-			
+                <ListItem
+                  onClick={() => history.push("/settings")}
+                  button
+                  className={classes.subMenuItem}
+                >
+                  <ListItemIcon className={classes.listItemIcon}>
+                    <SettingsOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={i18n.t("mainDrawer.listItems.settings")} className={classes.listItemText} />
+                </ListItem>
+
+              </List>
+            </Collapse>
+            {/* Fim do Collapse de Administração */}
+
             {!collapsed && <React.Fragment>
               <Divider className={classes.divider} />
               {/*
