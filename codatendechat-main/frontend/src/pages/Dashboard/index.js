@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
 
 import ButtonWithSpinner from "../../components/ButtonWithSpinner";
 
-import TableAttendantsStatus from "../../components/Dashboard/TableAttendantsStatus";
+import AttendantsCards from "../../components/Dashboard/AttendantsCards";
 import { isArray } from "lodash";
 
 import useDashboard from "../../hooks/useDashboard";
@@ -798,12 +798,10 @@ const Dashboard = () => {
 
           {/* USUARIOS ONLINE */}
           <Grid item xs={12}>
-            {attendants.length ? (
-              <TableAttendantsStatus
-                attendants={attendants}
-                loading={loading}
-              />
-            ) : null}
+            <AttendantsCards
+              attendants={attendants}
+              loading={loading}
+            />
           </Grid>
 
           {/* TOTAL DE ATENDIMENTOS POR USUARIO */}
