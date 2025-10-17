@@ -553,40 +553,40 @@ const Dashboard = () => {
     if (filterType === 1) {
       return (
         <>
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item>
             <TextField
               label={i18n.t("dashboard.filters.initialDate")}
               type="date"
               value={dateFrom}
               onChange={(e) => setDateFrom(e.target.value)}
-              fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
               variant="outlined"
               size="small"
+              style={{ width: '160px' }}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item>
             <TextField
               label={i18n.t("dashboard.filters.finalDate")}
               type="date"
               value={dateTo}
               onChange={(e) => setDateTo(e.target.value)}
-              fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
               variant="outlined"
               size="small"
+              style={{ width: '160px' }}
             />
           </Grid>
         </>
       );
     } else {
       return (
-        <Grid item xs={12} sm={6} md={3}>
-          <FormControl fullWidth variant="outlined" size="small">
+        <Grid item>
+          <FormControl variant="outlined" size="small" style={{ minWidth: '180px' }}>
             <InputLabel id="period-selector-label">
               {i18n.t("dashboard.periodSelect.title")}
             </InputLabel>
@@ -802,18 +802,20 @@ const Dashboard = () => {
           <Grid item xs={12}>
             <Paper
               style={{
-                padding: '16px 20px',
+                padding: '12px 16px',
                 borderRadius: '12px',
                 background: theme.palette.type === 'dark' ? '#1e1e1e' : '#ffffff',
                 boxShadow: theme.palette.type === 'dark'
                   ? '0 2px 8px rgba(0,0,0,0.3)'
                   : '0 2px 8px rgba(0,0,0,0.08)',
+                display: 'inline-block',
+                maxWidth: 'fit-content',
               }}
               elevation={0}
             >
-              <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} sm={6} md={2}>
-                  <FormControl fullWidth size="small" variant="outlined">
+              <Grid container spacing={1.5} alignItems="center" wrap="nowrap">
+                <Grid item>
+                  <FormControl size="small" variant="outlined" style={{ minWidth: '160px' }}>
                     <InputLabel id="filter-type-label">{i18n.t("dashboard.filters.filterType.title")}</InputLabel>
                     <Select
                       labelId="filter-type-label"
@@ -829,14 +831,14 @@ const Dashboard = () => {
 
                 {renderFilters()}
 
-                <Grid item xs={12} sm={6} md="auto" style={{ marginLeft: 'auto' }}>
+                <Grid item>
                   <ButtonWithSpinner
                     loading={loading}
                     onClick={() => fetchData()}
                     variant="contained"
                     color="primary"
                     style={{
-                      minWidth: '120px',
+                      minWidth: '100px',
                       height: '40px',
                       borderRadius: '8px',
                       textTransform: 'none',
