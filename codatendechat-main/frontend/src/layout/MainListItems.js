@@ -75,10 +75,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   listItemIcon: {
-    minWidth: "70px",
+    minWidth: "65px",
     "& .MuiSvgIcon-root": {
-      fontSize: "3.6rem",
-      padding: "8px",
+      fontSize: "3rem",
+      padding: "9px",
       borderRadius: "50%",
       backgroundColor: theme.palette.type === 'dark'
         ? "rgba(245, 184, 0, 0.12)"
