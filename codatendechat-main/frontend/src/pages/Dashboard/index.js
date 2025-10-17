@@ -141,15 +141,57 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.8px",
     textTransform: "uppercase",
     opacity: 0.9,
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(1.5),
+    paddingBottom: theme.spacing(1),
     color: "rgba(255, 255, 255, 0.9)",
+    position: "relative",
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "40px",
+      height: "3px",
+      borderRadius: "2px",
+      background: "rgba(255, 255, 255, 0.5)",
+    },
   },
-  cardTitleBlue: {},
-  cardTitleOrange: {},
-  cardTitleGreen: {},
-  cardTitlePurple: {},
-  cardTitlePink: {},
-  cardTitleCyan: {},
+  cardTitleBlue: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
+  cardTitleOrange: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
+  cardTitleGreen: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
+  cardTitlePurple: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
+  cardTitlePink: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
+  cardTitleCyan: {
+    "&::after": {
+      background: "rgba(255, 255, 255, 0.7)",
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+    },
+  },
   cardNumber: {
     fontSize: "2.2rem",
     fontWeight: 700,
@@ -158,9 +200,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
   },
   cardIcon: {
-    fontSize: 48,
-    opacity: 0.3,
-    color: "rgba(255, 255, 255, 0.3)",
+    fontSize: 52,
+    opacity: 0.6,
+    color: "rgba(255, 255, 255, 0.6)",
   },
   card2: {
     padding: theme.spacing(2),
