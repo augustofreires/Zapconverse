@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function ListItemLink(props) {
-  const { icon, primary, to, className } = props;
+  const { icon, primary, to, className, onClick } = props;
   const history = useHistory();
   const classes = useStyles();
 
@@ -149,6 +149,7 @@ function ListItemLink(props) {
         dense
         component={renderLink}
         className={`${classes.listItem} ${isActive ? classes.listItemActive : ''} ${className || ''}`}
+        onClick={onClick}
       >
         {icon ? (
           <ListItemIcon className={`${classes.listItemIcon} ${isActive ? classes.listItemIconActive : ''}`}>
@@ -364,7 +365,7 @@ const MainListItems = (props) => {
   };
 
   return (
-    <div onClick={drawerClose}>
+    <div>
       <Can
         role={user.profile}
         perform="dashboard:view"
@@ -373,6 +374,7 @@ const MainListItems = (props) => {
             to="/"
             primary="Dashboard"
             icon={<DashboardOutlinedIcon />}
+            onClick={drawerClose}
           />
         )}
       />
@@ -381,13 +383,15 @@ const MainListItems = (props) => {
         to="/tickets"
         primary={i18n.t("mainDrawer.listItems.tickets")}
         icon={<WhatsAppIcon />}
+        onClick={drawerClose}
       />
-	  
-	{showKanban && (  
+
+	{showKanban && (
 	  <ListItemLink
         to="/kanban"
         primary={`Kanban`}
         icon={<TableChartIcon />}
+        onClick={drawerClose}
       />
 	  )}
 
@@ -396,30 +400,35 @@ const MainListItems = (props) => {
         to="/quick-messages"
         primary={i18n.t("mainDrawer.listItems.quickMessages")}
         icon={<FlashOnIcon />}
+        onClick={drawerClose}
       />
-	  
+
 	  <ListItemLink
         to="/todolist"
         primary={i18n.t("mainDrawer.listItems.tasks")}
         icon={<BorderColorIcon />}
+        onClick={drawerClose}
       />
 
       <ListItemLink
         to="/contacts"
         primary={i18n.t("mainDrawer.listItems.contacts")}
         icon={<ContactPhoneOutlinedIcon />}
+        onClick={drawerClose}
       />
 
       <ListItemLink
         to="/schedules"
         primary={i18n.t("mainDrawer.listItems.schedules")}
         icon={<EventIcon />}
+        onClick={drawerClose}
       />
 
       <ListItemLink
         to="/tags"
         primary={i18n.t("mainDrawer.listItems.tags")}
         icon={<LocalOfferIcon />}
+        onClick={drawerClose}
       />
 
       <ListItemLink
@@ -430,12 +439,14 @@ const MainListItems = (props) => {
             <ForumIcon />
           </Badge>
         }
+        onClick={drawerClose}
       />
 
       <ListItemLink
         to="/helps"
         primary={i18n.t("mainDrawer.listItems.helps")}
         icon={<HelpOutlineIcon />}
+        onClick={drawerClose}
       />
 
       <Can
