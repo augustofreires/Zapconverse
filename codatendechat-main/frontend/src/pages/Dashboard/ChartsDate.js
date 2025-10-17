@@ -79,7 +79,7 @@ export const ChartsDate = () => {
     return (
         <>
             <Typography component="h2" variant="h6" color="primary" gutterBottom style={{ fontWeight: 600 }}>
-                {i18n.t("dashboard.charts.date.title")} ({ticketsData?.count})
+                Total de Atendimentos ({ticketsData?.count})
             </Typography>
 
             <Stack direction={'row'} spacing={2} alignItems={'center'} sx={{ my: 2, }} flexWrap="wrap">
