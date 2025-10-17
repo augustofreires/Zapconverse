@@ -117,165 +117,106 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   card1: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)'
+      : 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(59, 130, 246, 0.4)',
     },
   },
   cardTitle: {
-    fontSize: "0.75rem",
+    fontSize: "0.7rem",
     fontWeight: 600,
     letterSpacing: "0.8px",
     textTransform: "uppercase",
-    opacity: 0.8,
-    marginBottom: theme.spacing(2),
-    paddingBottom: theme.spacing(1.5),
-    color: theme.palette.type === 'dark' ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.6)",
-    position: "relative",
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      width: "40px",
-      height: "3px",
-      borderRadius: "2px",
-    },
+    opacity: 0.9,
+    marginBottom: theme.spacing(1),
+    color: "rgba(255, 255, 255, 0.9)",
   },
-  cardTitleBlue: {
-    "&::after": {
-      background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
-    },
-  },
-  cardTitleOrange: {
-    "&::after": {
-      background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
-    },
-  },
-  cardTitleGreen: {
-    "&::after": {
-      background: "linear-gradient(90deg, #10b981, #34d399)",
-    },
-  },
-  cardTitlePurple: {
-    "&::after": {
-      background: "linear-gradient(90deg, #8b5cf6, #a78bfa)",
-    },
-  },
-  cardTitlePink: {
-    "&::after": {
-      background: "linear-gradient(90deg, #ec4899, #f472b6)",
-    },
-  },
-  cardTitleCyan: {
-    "&::after": {
-      background: "linear-gradient(90deg, #06b6d4, #22d3ee)",
-    },
-  },
+  cardTitleBlue: {},
+  cardTitleOrange: {},
+  cardTitleGreen: {},
+  cardTitlePurple: {},
+  cardTitlePink: {},
+  cardTitleCyan: {},
   cardNumber: {
-    fontSize: "2.5rem",
+    fontSize: "2.2rem",
     fontWeight: 700,
     lineHeight: 1.2,
     letterSpacing: "-1px",
-    color: theme.palette.type === 'dark' ? "#ffffff" : "#1a1a1a",
+    color: "#ffffff",
   },
   cardIcon: {
-    fontSize: 56,
-    opacity: 1,
-    color: theme.palette.type === 'dark' ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.12)",
+    fontSize: 48,
+    opacity: 0.3,
+    color: "rgba(255, 255, 255, 0.3)",
   },
   card2: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #c2410c 0%, #f59e0b 100%)'
+      : 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(245, 158, 11, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(245, 158, 11, 0.4)',
     },
   },
   card3: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #065f46 0%, #10b981 100%)'
+      : 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(16, 185, 129, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(16, 185, 129, 0.4)',
     },
   },
   card4: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%)'
+      : 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(139, 92, 246, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(139, 92, 246, 0.4)',
     },
   },
   card5: {
@@ -354,53 +295,41 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   card8: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #be185d 0%, #ec4899 100%)'
+      : 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(236, 72, 153, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(236, 72, 153, 0.4)',
     },
   },
   card9: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
-    height: "100%",
+    minHeight: "110px",
     background: theme.palette.type === 'dark'
-      ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-    color: theme.palette.type === 'dark' ? "#e0e0e0" : "#2c3e50",
-    borderRadius: "12px",
-    boxShadow: theme.palette.type === 'dark'
-      ? "0 2px 8px 0 rgba(0, 0, 0, 0.3)"
-      : "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
-    border: theme.palette.type === 'dark'
-      ? "1px solid rgba(255, 255, 255, 0.1)"
-      : "1px solid rgba(0, 0, 0, 0.06)",
-    transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+      ? 'linear-gradient(135deg, #0e7490 0%, #06b6d4 100%)'
+      : 'linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%)',
+    color: "#ffffff",
+    borderRadius: "16px",
+    boxShadow: '0 4px 16px rgba(6, 182, 212, 0.3)',
+    border: 'none',
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: theme.palette.type === 'dark'
-        ? "0 4px 16px 0 rgba(0, 0, 0, 0.4)"
-        : "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
+      transform: "translateY(-4px) scale(1.02)",
+      boxShadow: '0 8px 24px rgba(6, 182, 212, 0.4)',
     },
   },
   fixedHeightPaper2: {
