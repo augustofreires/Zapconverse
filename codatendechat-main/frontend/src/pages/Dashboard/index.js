@@ -11,14 +11,14 @@ import TextField from "@material-ui/core/TextField";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Typography from "@material-ui/core/Typography";
 
-import CallIcon from "@material-ui/icons/Call";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import GroupAddIcon from "@material-ui/icons/GroupAdd";
 import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import TimerIcon from '@material-ui/icons/Timer';
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { grey, blue } from "@material-ui/core/colors";
 import { toast } from "react-toastify";
 
@@ -456,6 +456,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
   const classes = useStyles();
+  const theme = useTheme();
   const [counters, setCounters] = useState({});
   const [attendants, setAttendants] = useState([]);
   const [period, setPeriod] = useState(0);
@@ -552,13 +553,13 @@ const Dashboard = () => {
     if (filterType === 1) {
       return (
         <>
-          <Grid item xs={12} sm={4} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <TextField
               label={i18n.t("dashboard.filters.initialDate")}
               type="date"
               value={dateFrom}
               onChange={(e) => setDateFrom(e.target.value)}
-              className={classes.fullWidth}
+              fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
@@ -566,13 +567,13 @@ const Dashboard = () => {
               size="small"
             />
           </Grid>
-          <Grid item xs={12} sm={4} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <TextField
               label={i18n.t("dashboard.filters.finalDate")}
               type="date"
               value={dateTo}
               onChange={(e) => setDateTo(e.target.value)}
-              className={classes.fullWidth}
+              fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
@@ -584,8 +585,8 @@ const Dashboard = () => {
       );
     } else {
       return (
-        <Grid item xs={12} sm={4} md={3}>
-          <FormControl className={classes.selectContainer} variant="outlined" size="small">
+        <Grid item xs={12} sm={6} md={3}>
+          <FormControl fullWidth variant="outlined" size="small">
             <InputLabel id="period-selector-label">
               {i18n.t("dashboard.periodSelect.title")}
             </InputLabel>
@@ -633,7 +634,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <CallIcon className={`${classes.cardIcon} ${classes.cardIconBlue}`} />
+                  <WhatsAppIcon className={`${classes.cardIcon} ${classes.cardIconBlue}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -797,36 +798,56 @@ const Dashboard = () => {
             </Paper>
           </Grid>
 		  
-		  {/* FILTROS */}
-          <Grid item xs={12} sm={6} md={4}>
-            <FormControl className={classes.selectContainer}>
-              <InputLabel id="period-selector-label">{i18n.t("dashboard.filters.filterType.title")}</InputLabel>
-              <Select
-                labelId="period-selector-label"
-                value={filterType}
-                onChange={(e) => handleChangeFilterType(e.target.value)}
-              >
-                <MenuItem value={1}>{i18n.t("dashboard.filters.filterType.options.perDate")}</MenuItem>
-                <MenuItem value={2}>{i18n.t("dashboard.filters.filterType.options.perPeriod")}</MenuItem>
-              </Select>
-              <FormHelperText>
-                {i18n.t("dashboard.filters.filterType.helper")}
-              </FormHelperText>
-            </FormControl>
-          </Grid>
-
-          {renderFilters()}
-
-          {/* BOTAO FILTRAR */}
-          <Grid item xs={12} className={classes.alignRight}>
-            <ButtonWithSpinner
-              loading={loading}
-              onClick={() => fetchData()}
-              variant="contained"
-              color="primary"
+		  {/* FILTROS COMPACTOS */}
+          <Grid item xs={12}>
+            <Paper
+              style={{
+                padding: '16px 20px',
+                borderRadius: '12px',
+                background: theme.palette.type === 'dark' ? '#1e1e1e' : '#ffffff',
+                boxShadow: theme.palette.type === 'dark'
+                  ? '0 2px 8px rgba(0,0,0,0.3)'
+                  : '0 2px 8px rgba(0,0,0,0.08)',
+              }}
+              elevation={0}
             >
-              {i18n.t("dashboard.buttons.filter")}
-            </ButtonWithSpinner>
+              <Grid container spacing={2} alignItems="center">
+                <Grid item xs={12} sm={6} md={2}>
+                  <FormControl fullWidth size="small" variant="outlined">
+                    <InputLabel id="filter-type-label">{i18n.t("dashboard.filters.filterType.title")}</InputLabel>
+                    <Select
+                      labelId="filter-type-label"
+                      value={filterType}
+                      onChange={(e) => handleChangeFilterType(e.target.value)}
+                      label={i18n.t("dashboard.filters.filterType.title")}
+                    >
+                      <MenuItem value={1}>{i18n.t("dashboard.filters.filterType.options.perDate")}</MenuItem>
+                      <MenuItem value={2}>{i18n.t("dashboard.filters.filterType.options.perPeriod")}</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+
+                {renderFilters()}
+
+                <Grid item xs={12} sm={6} md="auto" style={{ marginLeft: 'auto' }}>
+                  <ButtonWithSpinner
+                    loading={loading}
+                    onClick={() => fetchData()}
+                    variant="contained"
+                    color="primary"
+                    style={{
+                      minWidth: '120px',
+                      height: '40px',
+                      borderRadius: '8px',
+                      textTransform: 'none',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {i18n.t("dashboard.buttons.filter")}
+                  </ButtonWithSpinner>
+                </Grid>
+              </Grid>
+            </Paper>
           </Grid>
 
           {/* USUARIOS ONLINE */}
