@@ -210,9 +210,36 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === 'dark' ? "#ffffff" : "#1a1a1a",
   },
   cardIcon: {
-    fontSize: 54,
-    opacity: 0.15,
-    color: theme.palette.type === 'dark' ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.12)",
+    fontSize: 40,
+    padding: theme.spacing(1.5),
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cardIconBlue: {
+    backgroundColor: "rgba(59, 130, 246, 0.15)",
+    color: "#3b82f6",
+  },
+  cardIconOrange: {
+    backgroundColor: "rgba(245, 158, 11, 0.15)",
+    color: "#f59e0b",
+  },
+  cardIconGreen: {
+    backgroundColor: "rgba(16, 185, 129, 0.15)",
+    color: "#10b981",
+  },
+  cardIconPurple: {
+    backgroundColor: "rgba(139, 92, 246, 0.15)",
+    color: "#8b5cf6",
+  },
+  cardIconPink: {
+    backgroundColor: "rgba(236, 72, 153, 0.15)",
+    color: "#ec4899",
+  },
+  cardIconCyan: {
+    backgroundColor: "rgba(6, 182, 212, 0.15)",
+    color: "#06b6d4",
   },
   card2: {
     padding: theme.spacing(2.5),
@@ -606,7 +633,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <CallIcon className={classes.cardIcon} />
+                  <CallIcon className={`${classes.cardIcon} ${classes.cardIconBlue}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -629,7 +656,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <HourglassEmptyIcon className={classes.cardIcon} />
+                  <HourglassEmptyIcon className={`${classes.cardIcon} ${classes.cardIconOrange}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -694,7 +721,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <CheckCircleIcon className={classes.cardIcon} />
+                  <CheckCircleIcon className={`${classes.cardIcon} ${classes.cardIconGreen}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -717,7 +744,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <GroupAddIcon className={classes.cardIcon} />
+                  <GroupAddIcon className={`${classes.cardIcon} ${classes.cardIconPurple}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -741,7 +768,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <AccessAlarmIcon className={classes.cardIcon} />
+                  <AccessAlarmIcon className={`${classes.cardIcon} ${classes.cardIconPink}`} />
                 </Grid>
               </Grid>
             </Paper>
@@ -764,7 +791,7 @@ const Dashboard = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                  <TimerIcon className={classes.cardIcon} />
+                  <TimerIcon className={`${classes.cardIcon} ${classes.cardIconCyan}`} />
                 </Grid>
               </Grid>
             </Paper>
