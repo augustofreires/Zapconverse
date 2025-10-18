@@ -44,6 +44,12 @@ export const ChartsDate = () => {
             : item.data
     })) : [];
 
+    // Calcula o valor máximo para o eixo Y
+    const maxValue = chartData.length > 0
+        ? Math.max(...chartData.map(item => item.total))
+        : 10;
+    const yAxisMax = Math.ceil(maxValue * 1.1); // 10% de margem superior
+
     const handleGetTicketsInformation = async () => {
         try {
             const { data } = await api.get(`/dashboard/ticketsDay?initialDate=${format(initialDate, 'yyyy-MM-dd')}&finalDate=${format(finalDate, 'yyyy-MM-dd')}&companyId=${companyId}`);
@@ -122,7 +128,7 @@ export const ChartsDate = () => {
             <ResponsiveContainer width="100%" height={280}>
                 <AreaChart
                     data={chartData}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    margin={{ top: 10, right: 50, left: 0, bottom: 0 }}
                 >
                     <defs>
                         <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
@@ -143,6 +149,7 @@ export const ChartsDate = () => {
                         stroke={theme.palette.text.secondary}
                         style={{ fontSize: '12px' }}
                         allowDecimals={false}
+                        domain={[0, yAxisMax]}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Area

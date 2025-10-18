@@ -95,9 +95,16 @@ const reducer = (state, action) => {
 const useStyles = makeStyles((theme) => ({
   mainPaper: {
     flex: 1,
-    padding: theme.spacing(1),
+    padding: theme.spacing(3),
     overflowY: "scroll",
     ...theme.scrollbarStyles,
+    borderRadius: 16,
+    background: theme.palette.type === 'dark'
+      ? 'linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+    boxShadow: theme.palette.type === 'dark'
+      ? '0 4px 12px rgba(0, 0, 0, 0.3)'
+      : '0 4px 12px rgba(0, 0, 0, 0.08)',
   },
 }));
 

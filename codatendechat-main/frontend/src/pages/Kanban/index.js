@@ -11,15 +11,23 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
   },
   button: {
-    background: "#10a110",
+    background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
     border: "none",
-    padding: "10px",
+    padding: "10px 20px",
     color: "white",
-    fontWeight: "bold",
-    borderRadius: "5px",
+    fontWeight: 600,
+    borderRadius: "10px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
+    fontSize: "0.875rem",
+    "&:hover": {
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 12px rgba(16, 185, 129, 0.4)",
+    },
   },
 }));
 
