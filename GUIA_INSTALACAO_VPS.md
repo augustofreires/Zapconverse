@@ -101,7 +101,7 @@ cd ~
 ### 4.2 Clonar do GitHub
 ```bash
 git clone https://github.com/augustofreires/Zapconverse.git
-cd Zapconverse/codatendechat-main
+cd Zapconverse/zapconverse
 ```
 
 ---
@@ -110,7 +110,7 @@ cd Zapconverse/codatendechat-main
 
 ### 5.1 Ir para pasta do backend
 ```bash
-cd ~/Zapconverse/codatendechat-main/backend
+cd ~/Zapconverse/zapconverse/backend
 ```
 
 ### 5.2 Instalar dependências
@@ -179,7 +179,7 @@ pm2 start dist/server.js --name zapconverse-backend
 
 ### 6.1 Ir para pasta do frontend
 ```bash
-cd ~/Zapconverse/codatendechat-main/frontend
+cd ~/Zapconverse/zapconverse/frontend
 ```
 
 ### 6.2 Instalar dependências
@@ -287,7 +287,7 @@ pm2 monit
 ```bash
 cd ~/Zapconverse
 git pull origin main
-cd codatendechat-main/frontend
+cd zapconverse/frontend
 npm run build
 pm2 restart zapconverse-frontend
 ```
@@ -353,7 +353,7 @@ sudo certbot --nginx -d seu-dominio.com
 
 ### Backend não inicia:
 ```bash
-cd ~/Zapconverse/codatendechat-main/backend
+cd ~/Zapconverse/zapconverse/backend
 npm run build
 pm2 restart zapconverse-backend
 pm2 logs zapconverse-backend
@@ -361,7 +361,7 @@ pm2 logs zapconverse-backend
 
 ### Frontend não carrega:
 ```bash
-cd ~/Zapconverse/codatendechat-main/frontend
+cd ~/Zapconverse/zapconverse/frontend
 npm run build
 pm2 restart zapconverse-frontend
 ```

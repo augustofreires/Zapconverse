@@ -128,7 +128,7 @@ print_success "Projeto clonado"
 
 # 10. Configurar Backend
 print_info "Configurando backend..."
-cd /home/deploy/zapconverse/codatendechat-main/backend
+cd /home/deploy/zapconverse/zapconverse/backend
 
 # Criar .env do backend
 cat > .env <<EOF
@@ -173,7 +173,7 @@ print_success "Backend compilado"
 
 # 13. Configurar Frontend
 print_info "Configurando frontend..."
-cd /home/deploy/zapconverse/codatendechat-main/frontend
+cd /home/deploy/zapconverse/zapconverse/frontend
 
 # Criar .env do frontend
 cat > .env <<EOF
@@ -192,10 +192,10 @@ print_success "Frontend compilado"
 
 # 15. Iniciar serviços com PM2
 print_info "Iniciando serviços..."
-cd /home/deploy/zapconverse/codatendechat-main/backend
+cd /home/deploy/zapconverse/zapconverse/backend
 sudo -u deploy pm2 start dist/server.js --name zapconverse-backend
 
-cd /home/deploy/zapconverse/codatendechat-main/frontend
+cd /home/deploy/zapconverse/zapconverse/frontend
 sudo -u deploy pm2 serve build 3001 --name zapconverse-frontend --spa
 
 sudo -u deploy pm2 save

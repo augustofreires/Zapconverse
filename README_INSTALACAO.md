@@ -73,7 +73,7 @@ sudo -u deploy pm2 stop all
 ```bash
 cd /home/deploy/zapconverse
 git pull origin main
-cd codatendechat-main/frontend
+cd zapconverse/frontend
 npm run build
 sudo -u deploy pm2 restart zapconverse-frontend
 ```
@@ -137,7 +137,7 @@ sudo ufw allow 3001/tcp
 
 ### Backend não inicia
 ```bash
-cd /home/deploy/zapconverse/codatendechat-main/backend
+cd /home/deploy/zapconverse/zapconverse/backend
 npm run build
 sudo -u deploy pm2 restart zapconverse-backend
 sudo -u deploy pm2 logs zapconverse-backend
@@ -145,7 +145,7 @@ sudo -u deploy pm2 logs zapconverse-backend
 
 ### Frontend não carrega
 ```bash
-cd /home/deploy/zapconverse/codatendechat-main/frontend
+cd /home/deploy/zapconverse/zapconverse/frontend
 npm run build
 sudo -u deploy pm2 restart zapconverse-frontend
 ```
