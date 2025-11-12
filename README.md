@@ -98,27 +98,26 @@
 
 ## 🚀 Instalação
 
-### Método 1: Instalação Automática (Recomendado)
+### Instalação Rápida (1 comando)
 
-**Instalação padrão:**
 ```bash
-wget https://raw.githubusercontent.com/augustofreires/Zapconverse/main/install.sh
-chmod +x install.sh
-sudo ./install.sh
+wget https://raw.githubusercontent.com/augustofreires/Zapconverse/main/install.sh && chmod +x install.sh && sudo ./install.sh
 ```
 
-**Com aaPanel (Painel Visual):**
+⏱️ **Tempo:** 10-15 minutos | **O que faz:** Instala tudo automaticamente
+
+### Customização (Opcional)
+
+Quer editar logos, cores e textos visualmente? Instale o **aaPanel**:
+
 ```bash
-wget https://raw.githubusercontent.com/augustofreires/Zapconverse/main/install-aapanel.sh
-chmod +x install-aapanel.sh
-sudo ./install-aapanel.sh
+wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && sudo bash install.sh aapanel
 ```
 
-### Método 2: Instalação Manual
-
-Veja a documentação completa:
-- [📖 Guia de Instalação Completo](GUIA_INSTALACAO_VPS.md)
-- [🎛️ Instalação com aaPanel](INSTALACAO_AAPANEL.md)
+📖 **Documentação:**
+- [📖 Instalação Simples](INSTALACAO_SIMPLES.md) - Instalação via terminal
+- [🎨 Customização Visual](CUSTOMIZACAO_VISUAL.md) - Trocar logo, cores, etc.
+- [🎛️ Instalação com aaPanel](INSTALACAO_AAPANEL.md) - Instalação + aaPanel integrado
 
 ---
 
@@ -166,14 +165,18 @@ Veja a documentação completa:
 ## 📖 Documentação
 
 ### Guias de Instalação
-- [Instalação em VPS](GUIA_INSTALACAO_VPS.md)
-- [Instalação com aaPanel](INSTALACAO_AAPANEL.md)
+- [⚡ Instalação Simples](INSTALACAO_SIMPLES.md) - **Recomendado**
+- [🎨 Customização Visual](CUSTOMIZACAO_VISUAL.md) - **Para seus clientes**
+- [🎛️ Instalação com aaPanel](INSTALACAO_AAPANEL.md) - Instalação completa
+- [🎬 Roteiro de Vídeo-Aula](ROTEIRO_VIDEO_AULA.md) - Para gravação
+
+### Configurações Avançadas
 - [Instalação do Nginx](zapconverse/NGINX_SETUP.md)
 - [Configuração SSL](zapconverse/SSL_SETUP.md)
 
-### API Documentation
+### Para Desenvolvedores
 ```bash
-# Após instalação, acesse:
+# API Documentation (após instalação):
 http://seu-servidor:3000/api-docs
 ```
 
@@ -209,6 +212,17 @@ Acesse: `http://seu-ip:3001`
 1. Entre em **Tickets**
 2. Aguarde mensagens chegarem
 3. Atenda seus clientes! 🎉
+
+### 5️⃣ Personalizar (aaPanel)
+
+**Para seus clientes personalizarem o sistema:**
+
+1. Instale o aaPanel (comando na seção Instalação)
+2. Acesse o painel visual
+3. Troque logo, cores, textos facilmente
+4. Veja o [Guia de Customização Visual](CUSTOMIZACAO_VISUAL.md)
+
+💡 **aaPanel é opcional** - Use apenas para edição visual de arquivos!
 
 ---
 
